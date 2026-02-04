@@ -16,12 +16,14 @@ A full-stack web application with a MongoDB-based CRUD API featuring professiona
   - Relationship management between products and reviews
 
 ### Security & Authentication
-- **User Authentication**: JWT-based authentication system
+- **User Authentication**: Session-based authentication system using cookies (express-session)
 - **Password Security**: Bcrypt password hashing (never store plain-text passwords)
+- **Session Management**: Sessions stored in MongoDB with secure httpOnly cookies
 - **Role-Based Access Control (RBAC)**:
   - **Public Access**: GET routes (read operations) are open to everyone
   - **Protected Access**: POST, PUT, DELETE routes require authentication
-  - **Admin Access**: Only users with "admin" role can create, update, or delete resources
+  - **Admin Access**: Only users with "admin" role can create, update, or delete products
+  - **User Access**: Regular users can view products and place orders
 - **User Roles**: "user" (default) and "admin"
 
 ### Architecture
@@ -64,7 +66,7 @@ Create a `.env` file in the root directory:
 ```env
 PORT=3000
 MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/productsdb
-JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
+SESSION_SECRET=your-super-secret-session-key-change-this-in-production
 ```
 
 #### Option B: Local MongoDB
@@ -72,10 +74,10 @@ JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
 ```env
 PORT=3000
 MONGODB_URI=mongodb://localhost:27017/productsdb
-JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
+SESSION_SECRET=your-super-secret-session-key-change-this-in-production
 ```
 
-**Important**: Change `JWT_SECRET` to a strong, random string in production!
+**Important**: Change `SESSION_SECRET` to a strong, random string in production!
 
 ### 3. Start the Server
 
@@ -120,7 +122,7 @@ web2assign2-main/
 │   └── auth.js              # Authentication routes
 │
 ├── middleware/               # Middleware functions
-│   ├── auth.js              # JWT authentication & RBAC middleware
+│   ├── auth.js              # Session authentication & RBAC middleware
 │   ├── validation.js        # Input validation middleware
 │   └── errorHandler.js      # Centralized error handling
 │
@@ -183,10 +185,11 @@ Response (201 Created):
     "id": "...",
     "email": "user@example.com",
     "role": "user"
-  },
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+  }
 }
 ```
+
+**Note**: Session cookie is automatically set in the response. No token needed!
 
 #### Login
 **POST** `/api/auth/login`
@@ -209,20 +212,18 @@ Response (200 OK):
     "id": "...",
     "email": "user@example.com",
     "role": "user"
-  },
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+  }
 }
 ```
+
+**Note**: Session cookie is automatically set in the response. No token needed!
 
 #### Get Current User Profile
 **GET** `/api/auth/profile`
 
 **Access**: Protected (requires authentication)
 
-Headers:
-```
-Authorization: Bearer <token>
-```
+**Note**: Session cookie is automatically sent with requests. No headers needed!
 
 Response (200 OK):
 ```json
@@ -243,10 +244,9 @@ Response (200 OK):
 
 **Access**: Admin only (requires authentication + admin role)
 
-Headers:
-```
-Authorization: Bearer <admin_token>
-```
+**Note**: Session cookie is automatically sent with requests. Make sure you're logged in as an admin!
+
+**Note**: Session cookie is automatically sent with requests. Make sure you're logged in as an admin!
 
 Request Body:
 ```json
@@ -307,20 +307,18 @@ Response (200 OK):
 
 **Access**: Admin only (requires authentication + admin role)
 
-Headers:
-```
-Authorization: Bearer <admin_token>
-```
+**Note**: Session cookie is automatically sent with requests. Make sure you're logged in as an admin!
+
+**Note**: Session cookie is automatically sent with requests. Make sure you're logged in as an admin!
 
 #### Delete Product
 **DELETE** `/api/products/:id`
 
 **Access**: Admin only (requires authentication + admin role)
 
-Headers:
-```
-Authorization: Bearer <admin_token>
-```
+**Note**: Session cookie is automatically sent with requests. Make sure you're logged in as an admin!
+
+**Note**: Session cookie is automatically sent with requests. Make sure you're logged in as an admin!
 
 ### Reviews API
 
@@ -328,6 +326,8 @@ Authorization: Bearer <admin_token>
 **POST** `/api/reviews`
 
 **Access**: Admin only (requires authentication + admin role)
+
+**Note**: Session cookie is automatically sent with requests. Make sure you're logged in as an admin!
 
 #### Get All Reviews
 **GET** `/api/reviews`
@@ -344,21 +344,24 @@ Authorization: Bearer <admin_token>
 
 **Access**: Admin only (requires authentication + admin role)
 
+**Note**: Session cookie is automatically sent with requests. Make sure you're logged in as an admin!
+
 #### Delete Review
 **DELETE** `/api/reviews/:id`
 
 **Access**: Admin only (requires authentication + admin role)
 
+**Note**: Session cookie is automatically sent with requests. Make sure you're logged in as an admin!
+
 ## 🔐 Authentication & Authorization
 
 ### How Authentication Works
 
-1. **Register/Login**: User registers or logs in and receives a JWT token
-2. **Token Usage**: Include the token in the `Authorization` header for protected routes:
-   ```
-   Authorization: Bearer <your-jwt-token>
-   ```
-3. **Token Expiration**: Tokens expire after 7 days (configurable)
+1. **Register/Login**: User registers or logs in and a session is created
+2. **Session Cookie**: A secure httpOnly cookie is automatically set in the browser
+3. **Automatic Authentication**: The session cookie is automatically sent with every request
+4. **Session Expiration**: Sessions expire after 14 days (configurable in server.js)
+5. **No Manual Token Management**: Unlike JWT, you don't need to manually include tokens in headers
 
 ### Access Control
 
@@ -382,6 +385,8 @@ POST /api/auth/register
 }
 ```
 
+**Note**: After registration, you'll be automatically logged in via session cookie.
+
 ## 🧪 Testing the API
 
 ### Using Postman
@@ -389,6 +394,7 @@ POST /api/auth/register
 1. **Register a User**:
    - Method: POST
    - URL: `http://localhost:3000/api/auth/register`
+   - Headers: `Content-Type: application/json`
    - Body (JSON):
      ```json
      {
@@ -397,14 +403,13 @@ POST /api/auth/register
        "role": "admin"
      }
      ```
-   - Copy the `token` from the response
+   - **Note**: Session cookie is automatically set. No token to copy!
 
 2. **Create a Product** (Admin only):
    - Method: POST
    - URL: `http://localhost:3000/api/products`
-   - Headers:
-     - `Content-Type: application/json`
-     - `Authorization: Bearer <your-token>`
+   - Headers: `Content-Type: application/json`
+   - **Note**: Session cookie is automatically sent. Make sure you're logged in as admin!
    - Body (JSON):
      ```json
      {
@@ -433,10 +438,11 @@ curl -X POST http://localhost:3000/api/auth/login \
   -H "Content-Type: application/json" \
   -d '{"email":"test@example.com","password":"password123"}'
 
-# Create a product (replace TOKEN with actual token)
+# Create a product (use -c cookies.txt to save session cookie, -b cookies.txt to use it)
 curl -X POST http://localhost:3000/api/products \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer TOKEN" \
+  -c cookies.txt \
+  -b cookies.txt \
   -d '{"name":"Test Product","price":29.99,"description":"Test","category":"Test"}'
 
 # Get all products (no auth required)
@@ -470,18 +476,18 @@ Error Response Format:
 - Check if port 3000 is already in use
 - Verify all dependencies are installed: `npm install`
 - Check MongoDB connection string in `.env` file
-- Verify JWT_SECRET is set in `.env` file
+- Verify SESSION_SECRET is set in `.env` file
 
 ### Authentication errors
-- Verify token is included in `Authorization` header
-- Check token format: `Bearer <token>`
-- Ensure token hasn't expired (7 days default)
-- Verify JWT_SECRET matches between token creation and verification
+- Verify you're logged in (check session cookie)
+- Try logging out and logging back in
+- Clear browser cookies and try again
+- Check that SESSION_SECRET is set in `.env` file
 
 ### Authorization errors (403 Forbidden)
 - Ensure user has "admin" role for POST, PUT, DELETE operations
-- Verify token belongs to an admin user
-- Check user role in database
+- Verify you're logged in as an admin user
+- Check user role in database or via `/api/auth/profile` endpoint
 
 ### MongoDB connection errors
 - Verify MongoDB is running (if using local instance)
@@ -497,12 +503,14 @@ Error Response Format:
 
 ## 📝 Security Best Practices
 
-1. **JWT Secret**: Always use a strong, random JWT_SECRET in production
+1. **Session Secret**: Always use a strong, random SESSION_SECRET in production
 2. **Password Hashing**: Passwords are automatically hashed using bcrypt (never stored in plain text)
-3. **Token Expiration**: Tokens expire after 7 days (configurable)
-4. **Environment Variables**: Never commit `.env` file to version control
-5. **HTTPS**: Use HTTPS in production to protect tokens in transit
-6. **Input Validation**: All inputs are validated before processing
+3. **Session Expiration**: Sessions expire after 14 days (configurable in server.js)
+4. **HttpOnly Cookies**: Session cookies are httpOnly to prevent XSS attacks
+5. **Environment Variables**: Never commit `.env` file to version control
+6. **HTTPS**: Use HTTPS in production to protect session cookies in transit (secure flag enabled)
+7. **Input Validation**: All inputs are validated before processing
+8. **Session Storage**: Sessions are stored in MongoDB for persistence across server restarts
 
 ## 🎯 MVC Architecture Benefits
 
@@ -511,7 +519,3 @@ Error Response Format:
 - **Scalability**: Can easily add new features without affecting existing code
 - **Testability**: Controllers and models can be tested independently
 - **Reusability**: Middleware and controllers can be reused across routes
-
----
-
-Created as part of Assignment 3: MongoDB CRUD API with Authentication & MVC Architecture
