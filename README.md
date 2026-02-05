@@ -519,7 +519,13 @@ Error Response Format:
 - **Scalability**: Can easily add new features without affecting existing code
 - **Testability**: Controllers and models can be tested independently
 - **Reusability**: Middleware and controllers can be reused across routes
-<img width="1920" height="1017" alt="image" src="https://github.com/user-attachments/assets/0d0c06eb-f19e-4dc1-bc76-7395d022f7f6" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/bc05e108-9508-49a5-8b3d-1cec8adfb85a" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/16468ecf-0645-4718-9723-7eff226f94d3" />
+
+<img width="1920" height="1080" alt="Снимок экрана_20260206_001417" src="https://github.com/user-attachments/assets/586d2ee6-efea-4f37-b94e-896ee6c65b96" />
+<img width="1920" height="1080" alt="Снимок экрана_20260206_001404" src="https://github.com/user-attachments/assets/db3eb7fb-5239-4cb2-988b-c7f413d6890b" />
+<img width="1920" height="1080" alt="Снимок экрана_20260206_001304" src="https://github.com/user-attachments/assets/cca58cd6-3bc8-49db-a9c3-9bf814fddc05" />
+<img width="1920" height="1080" alt="Снимок экрана_20260206_001248" src="https://github.com/user-attachments/assets/ab47e90f-0e02-4f36-b397-6c5834672097" />
+<img width="1920" height="1080" alt="Снимок экрана_20260206_001232" src="https://github.com/user-attachments/assets/a1998bc8-24ce-454d-a783-a5aa089e84ba" />
+<img width="1920" height="1017" alt="Снимок экрана_20260206_000921" src="https://github.com/user-attachments/assets/901429e3-9362-466b-8678-effa6b9ad14e" />
+<img width="1920" height="1080" alt="Снимок экрана_20260206_001437" src="https://github.com/user-attachments/assets/23dd42c9-0525-46de-a078-5ef4b7d8fef3" />
+<img width="1920" height="1080" alt="Снимок экрана_20260206_001422" src="https://github.com/user-attachments/assets/127246fa-6fad-41d8-9ef1-0b5386093f8f" />
 
