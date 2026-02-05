@@ -520,3 +520,6 @@ Error Response Format:
 - **Testability**: Controllers and models can be tested independently
 - **Reusability**: Middleware and controllers can be reused across routes
 <img width="1920" height="1017" alt="image" src="https://github.com/user-attachments/assets/0d0c06eb-f19e-4dc1-bc76-7395d022f7f6" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/bc05e108-9508-49a5-8b3d-1cec8adfb85a" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/16468ecf-0645-4718-9723-7eff226f94d3" />
+
