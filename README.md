@@ -519,3 +519,4 @@ Error Response Format:
 - **Scalability**: Can easily add new features without affecting existing code
 - **Testability**: Controllers and models can be tested independently
 - **Reusability**: Middleware and controllers can be reused across routes
+<img width="1920" height="1017" alt="image" src="https://github.com/user-attachments/assets/0d0c06eb-f19e-4dc1-bc76-7395d022f7f6" />
