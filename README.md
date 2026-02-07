@@ -1,4 +1,4 @@
-# Assignment 3: MongoDB CRUD API with Authentication & MVC Architecture
+<img width="1920" height="1080" alt="Снимок экрана_20260207_171056" src="https://github.com/user-attachments/assets/0e8d1945-6c0e-4ee1-8916-126db840b547" /># Assignment 3: MongoDB CRUD API with Authentication & MVC Architecture
 
 A full-stack web application with a MongoDB-based CRUD API featuring professional security measures, Role-Based Access Control (RBAC), and a scalable MVC (Model-View-Controller) architecture. This project demonstrates data persistence, complex object schemas, relationship management, authentication, and authorization.
 
@@ -520,12 +520,28 @@ Error Response Format:
 - **Testability**: Controllers and models can be tested independently
 - **Reusability**: Middleware and controllers can be reused across routes
 
-<img width="1920" height="1080" alt="Снимок экрана_20260206_001417" src="https://github.com/user-attachments/assets/586d2ee6-efea-4f37-b94e-896ee6c65b96" />
-<img width="1920" height="1080" alt="Снимок экрана_20260206_001404" src="https://github.com/user-attachments/assets/db3eb7fb-5239-4cb2-988b-c7f413d6890b" />
-<img width="1920" height="1080" alt="Снимок экрана_20260206_001304" src="https://github.com/user-attachments/assets/cca58cd6-3bc8-49db-a9c3-9bf814fddc05" />
-<img width="1920" height="1080" alt="Снимок экрана_20260206_001248" src="https://github.com/user-attachments/assets/ab47e90f-0e02-4f36-b397-6c5834672097" />
-<img width="1920" height="1080" alt="Снимок экрана_20260206_001232" src="https://github.com/user-attachments/assets/a1998bc8-24ce-454d-a783-a5aa089e84ba" />
-<img width="1920" height="1017" alt="Снимок экрана_20260206_000921" src="https://github.com/user-attachments/assets/901429e3-9362-466b-8678-effa6b9ad14e" />
-<img width="1920" height="1080" alt="Снимок экрана_20260206_001437" src="https://github.com/user-attachments/assets/23dd42c9-0525-46de-a078-5ef4b7d8fef3" />
-<img width="1920" height="1080" alt="Снимок экрана_20260206_001422" src="https://github.com/user-attachments/assets/127246fa-6fad-41d8-9ef1-0b5386093f8f" />
+<img width="1920" height="1080" alt="Снимок экрана_20260207_171112" src="https://github.com/user-attachments/assets/f064f2fa-59c2-4ddf-8b35-8ccfcf2d11c3" /><img width="1920" height="1080" alt="Снимок экрана_20260207_171051" src="https://github.com/user-attachments/assets/cb161f5c-187f-4767-b25a-1db7a70234c5" />
+<img width="1920" height="1080" alt="Снимок экрана_20260207_172329" src="https://github.com/user-attachments/assets/c1a40ebc-3971-4306-925c-7477a2204d48" />
+<img width="1920" height="1080" alt="Снимок экрана_20260207_171903" src="https://github.com/user-attachments/assets/25d6a30e-ddd6-46b0-af17-a7435d4bc2c2" />
+<img width="1920" height="1080" alt="Снимок экрана_20260207_171900" src="https://github.com/user-attachments/assets/ce0280a2-0335-4731-85ee-139ade3be523" />
+<img width="1920" height="1080" alt="Снимок экрана_20260207_171857" src="https://github.com/user-attachments/assets/822754f7-c978-4432-bd94-83dca5d69657" />
+<img width="1920" height="1080" alt="Снимок экрана_20260207_171848" src="https://github.com/user-attachments/assets/807f35c9-909a-447f-bd87-34e8e4eb6f78" />
+<img width="1920" height="1080" alt="Снимок экрана_20260207_171601" src="https://github.com/user-attachments/assets/5a8af171-0d78-44dc-9ace-53d70df3f99f" />
+<img width="1920" height="1080" alt="Снимок экрана_20260207_171553" src="https://github.com/user-attachments/assets/c82f050e-5d8b-4f84-91ea-172484fcecf3" />
+<img width="1920" height="1080" alt="Снимок экрана_20260207_171549" src="https://github.com/user-attachments/assets/2420c935-f460-4ac6-b5ac-51621f81efc0" />
+<img width="1920" height="1080" alt="Снимок экрана_20260207_171535" src="https://github.com/user-attachments/assets/6e8756af-af13-42e9-af2a-35be3bcdf0db" />
+<img width="1920" height="1080" alt="Снимок экрана_20260207_171528" src="https://github.com/user-attachments/assets/ddfb6354-c2ad-42e4-b3eb-1a8e76b065e9" />
+<img width="1920" height="1080" alt="Снимок экрана_20260207_171523" src="https://github.com/user-attachments/assets/99de58a6-6593-4e09-9621-f4375bf487c5" />
+<img width="1920" height="1080" alt="Снимок экрана_20260207_171511" src="https://github.com/user-attachments/assets/f74e607d-5f08-4659-bd48-2e5a609d1826" />
+<img width="1920" height="1080" alt="Снимок экрана_20260207_171415" src="https://github.com/user-attachments/assets/527a6872-0a5b-41e0-a168-b03c449eee0d" />
+<img width="1920" height="1080" alt="Снимок экрана_20260207_171206" src="https://github.com/user-attachments/assets/c5e46639-bc0a-4d30-b639-ac4ecc6b1c55" />
+<img width="1920" height="1080" alt="Снимок экрана_20260207_171200" src="https://github.com/user-attachments/assets/c7f98070-1715-4fb5-b27d-e0784b98b0d9" />
+<img width="1920" height="1080" alt="Снимок экрана_20260207_171155" src="https://github.com/user-attachments/assets/18e01fec-dbae-40b9-95d8-7c7ba552b7b1" />
+<img width="1920" height="1080" alt="Снимок экрана_20260207_171149" src="https://github.com/user-attachments/assets/736823e9-a3da-4c8e-9a6a-6feb57eac44e" />
+<img width="1920" height="1080" alt="Снимок экрана_20260207_171145" src="https://github.com/user-attachments/assets/2c7566f8-8302-4ced-a9ae-fe538a27082a" />
+<img width="1920" height="1080" alt="Снимок экрана_20260207_171139" src="https://github.com/user-attachments/assets/bccf17f0-b820-4338-8eac-1c8c55c033a8" />
+<img width="1920" height="1080" alt="Снимок экрана_20260207_171136" src="https://github.com/user-attachments/assets/f1a71d0a-9979-40df-a95b-73a99021a5f1" />
+<img width="1920" height="1080" alt="Снимок экрана_20260207_171128" src="https://github.com/user-attachments/assets/f57d0b03-2893-40d3-b376-cced0390e5f5" />
+<img width="29" height="35" alt="Снимок экрана_20260207_171123" src="https://github.com/user-attachments/assets/0ab685d7-29a6-4946-bec1-7efe30c09bda" />
+<img width="1920" height="1080" alt="Снимок экрана_20260207_171120" src="https://github.com/user-attachments/assets/4e0e75d0-a4af-4ce6-aa50-c951490923e8" />
 
