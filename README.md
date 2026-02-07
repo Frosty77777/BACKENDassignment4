@@ -1,4 +1,4 @@
-<img width="1920" height="1080" alt="Снимок экрана_20260207_171056" src="https://github.com/user-attachments/assets/0e8d1945-6c0e-4ee1-8916-126db840b547" /># Assignment 3: MongoDB CRUD API with Authentication & MVC Architecture
+# Assignment 3: MongoDB CRUD API with Authentication & MVC Architecture
 
 A full-stack web application with a MongoDB-based CRUD API featuring professional security measures, Role-Based Access Control (RBAC), and a scalable MVC (Model-View-Controller) architecture. This project demonstrates data persistence, complex object schemas, relationship management, authentication, and authorization.
 
