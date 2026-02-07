@@ -542,6 +542,5 @@ Error Response Format:
 <img width="1920" height="1080" alt="Снимок экрана_20260207_171139" src="https://github.com/user-attachments/assets/bccf17f0-b820-4338-8eac-1c8c55c033a8" />
 <img width="1920" height="1080" alt="Снимок экрана_20260207_171136" src="https://github.com/user-attachments/assets/f1a71d0a-9979-40df-a95b-73a99021a5f1" />
 <img width="1920" height="1080" alt="Снимок экрана_20260207_171128" src="https://github.com/user-attachments/assets/f57d0b03-2893-40d3-b376-cced0390e5f5" />
-<img width="29" height="35" alt="Снимок экрана_20260207_171123" src="https://github.com/user-attachments/assets/0ab685d7-29a6-4946-bec1-7efe30c09bda" />
 <img width="1920" height="1080" alt="Снимок экрана_20260207_171120" src="https://github.com/user-attachments/assets/4e0e75d0-a4af-4ce6-aa50-c951490923e8" />
 
